@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 
 import { gowunBatang } from "./font";
 import "./globals.css";
@@ -15,7 +16,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={gowunBatang.className}>{children}</body>
+      <body className={gowunBatang.className}>
+        {/* NOTE - 네비게이션바 */}
+        <header className="flex justify-between px-5 py-4">
+          <div className="text-2xl font-bold">
+            <Link href="/">Seo0</Link>
+          </div>
+          <div className="flex gap-2">
+            <Link href="/skills">skills</Link>
+            <Link href="/projects">projects</Link>
+            <Link href="/blog">blog</Link> <Link href="/contact">contact</Link>
+          </div>
+        </header>
+        <div className="px-5">{children}</div>
+      </body>
     </html>
   );
 }
